@@ -12,6 +12,8 @@
 #Display winner
 #Add do they want to play again message
 #Test
+
+#array of card details
                 #spades
 card_details = [{ace_of_spades: {numeric_value: 1, value: 1}},
                 {jack_of_spades: {numeric_value: 2, value: 11}},
@@ -91,17 +93,29 @@ def get_card_type(card_details, numeric_value)
   end
 end
 
+#create totals for hands
 def hand_value(card_details, card1, card2)
   hand_value_1 = get_card_value(card_details, card1)
   hand_value_2 = get_card_value(card_details, card2)
   hand_value_1 + hand_value_2
 end
 
+loop do
 
+#shuffle cards
 deck = (1..52).to_a.shuffle!
 print deck
 puts card_details
 puts " "
+
+#Enter player names
+puts "Welcome to the Poker Game"
+puts "Enter player 1 name: "
+player1 = gets.chomp
+puts "Enter player 2 name: "
+player2 = gets.chomp
+
+puts ""
 
 player1_card_1 = deck.pop
 player2_card_1 = deck.pop
@@ -109,12 +123,12 @@ player2_card_1 = deck.pop
 player1_card_2 = deck.pop
 player2_card_2 = deck.pop
 
-puts "Player 1 is holding #{get_card_type(card_details, player1_card_1)}
+puts "#{player1} is holding #{get_card_type(card_details, player1_card_1)}
 and #{get_card_type(card_details,player1_card_2)}
 and value is #{hand_value(card_details, player1_card_1, player1_card_2)}"
 
 puts " "
-puts "Player 2 is holding #{get_card_type(card_details, player2_card_1)}
+puts "#{player2}  is holding #{get_card_type(card_details, player2_card_1)}
 and #{get_card_type(card_details,player2_card_2)}
 and value is #{hand_value(card_details, player2_card_1, player2_card_2)}"
 
@@ -123,6 +137,16 @@ player_1_total = hand_value(card_details, player1_card_1, player1_card_2)
 player_2_total = hand_value(card_details, player2_card_1, player2_card_2)
 
 
-puts "player1 Wins!!" if player_1_total > player_2_total
-puts "player2 Wins!!" if player_2_total > player_1_total
+puts "#{player1} Wins!!" if player_1_total > player_2_total
+puts "#{player2} Wins!!" if player_2_total > player_1_total
 puts "THIS IS A DRAW!!"  if player_1_total == player_2_total
+
+puts ""
+puts ""
+puts "Thanks for playing the Poker Game - do you want to play again (y/n) "
+  answer = gets.chomp.downcase
+  if answer != "y"
+    puts "Goodbye!"
+    break
+  end
+end
