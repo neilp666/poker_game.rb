@@ -13,5 +13,8 @@
 #Add do they want to play again message
 #Test
 
+deck = (1..52).to_a.shuffle!
+print deck
+puts " "
 
 
