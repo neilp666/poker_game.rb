@@ -91,6 +91,12 @@ def get_card_type(card_details, numeric_value)
   end
 end
 
+def hand_value(card_details, card1, card2)
+  hand_value_1 = get_card_value(card_details, card1)
+  hand_value_2 = get_card_value(card_details, card2)
+  hand_value_1 + hand_value_2
+end
+
 
 deck = (1..52).to_a.shuffle!
 print deck
@@ -103,7 +109,11 @@ player2_card_1 = deck.pop
 player1_card_2 = deck.pop
 player2_card_2 = deck.pop
 
-puts "Player 1 is holding #{player1_card_1} and #{player1_card_2}"
-puts "Player 2 is holding #{player2_card_1} and #{player2_card_2}"
+puts "Player 1 is holding #{get_card_type(card_details, player1_card_1)}
+and #{get_card_type(card_details,player1_card_2)} and value is #{hand_value(card_details, player1_card_1, player1_card_2)}"
+
+puts " "
+puts "Player 2 is holding #{get_card_type(card_details, player2_card_1)}
+and #{get_card_type(card_details,player2_card_2)} and value is #{hand_value(card_details, player2_card_1, player2_card_2)}"
 
 
