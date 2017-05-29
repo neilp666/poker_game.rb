@@ -82,6 +82,15 @@ def get_card_value(card_details, card)
   end
 end
 
+def get_card_type(card_details, numeric_value)
+  card_details.each do |name|
+    name.each do |key, value|
+      new_value = value[:numeric_value]
+      return key if new_value == numeric_value
+    end
+  end
+end
+
 
 deck = (1..52).to_a.shuffle!
 print deck
@@ -90,6 +99,7 @@ puts " "
 
 # Example 
 
-puts get_card_value(card_details, 8)
+puts get_card_value(card_details, 3)
+puts get_card_type(card_details, 52)
 
 
