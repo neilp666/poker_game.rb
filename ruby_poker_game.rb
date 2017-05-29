@@ -94,10 +94,12 @@ def get_card_type(card_details, numeric_value)
 end
 
 #create totals for hands
-def hand_value(card_details, card1, card2)
+def hand_value(card_details, card1, card2, card3 , card4)
   hand_value_1 = get_card_value(card_details, card1)
   hand_value_2 = get_card_value(card_details, card2)
-  hand_value_1 + hand_value_2
+  hand_value_3 = get_card_value(card_details, card3)
+  hand_value_4 = get_card_value(card_details, card4)
+  hand_value_1 + hand_value_2 + hand_value_3 + hand_value_4
 end
 
 loop do
@@ -115,26 +117,48 @@ player1 = gets.chomp
 puts "Enter player 2 name: "
 player2 = gets.chomp
 
+
 puts ""
 
+#dealing cards
 player1_card_1 = deck.pop
 player2_card_1 = deck.pop
+
 
 player1_card_2 = deck.pop
 player2_card_2 = deck.pop
 
+
+player1_card_3 = deck.pop
+player2_card_3 = deck.pop
+
+
+player1_card_4 = deck.pop
+player2_card_4 = deck.pop
+
 puts "#{player1} is holding #{get_card_type(card_details, player1_card_1)}
 and #{get_card_type(card_details,player1_card_2)}
-and value is #{hand_value(card_details, player1_card_1, player1_card_2)}"
+and #{get_card_type(card_details,player1_card_3)}
+and #{get_card_type(card_details,player1_card_4)}
+and value is #{hand_value(card_details, player1_card_1, player1_card_2, player1_card_3, player1_card_4)}"
 
 puts " "
-puts "#{player2}  is holding #{get_card_type(card_details, player2_card_1)}
+
+puts "#{player2} is holding #{get_card_type(card_details, player2_card_1)}
 and #{get_card_type(card_details,player2_card_2)}
-and value is #{hand_value(card_details, player2_card_1, player2_card_2)}"
+and #{get_card_type(card_details,player2_card_3)}
+and #{get_card_type(card_details,player2_card_4)}
+and value is #{hand_value(card_details, player2_card_1, player2_card_2, player2_card_3, player2_card_4)}"
 
 puts " "
-player_1_total = hand_value(card_details, player1_card_1, player1_card_2)
-player_2_total = hand_value(card_details, player2_card_1, player2_card_2)
+
+
+
+puts " "
+
+
+player_1_total = hand_value(card_details, player1_card_1, player1_card_2, player1_card_3, player1_card_4)
+player_2_total = hand_value(card_details, player2_card_1, player2_card_2, player2_card_3, player2_card_4)
 
 
 puts "#{player1} Wins!!" if player_1_total > player_2_total
