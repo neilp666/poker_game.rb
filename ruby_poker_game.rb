@@ -88,8 +88,8 @@ print deck
 puts card_details
 puts " "
 
-#example
+# Example 
 
-puts get_card_value(card_details, 10)
+puts get_card_value(card_details, 8)
 
 
