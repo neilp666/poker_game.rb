@@ -97,9 +97,13 @@ print deck
 puts card_details
 puts " "
 
-# Example 
+player1_card_1 = deck.pop
+player2_card_1 = deck.pop
 
-puts get_card_value(card_details, 3)
-puts get_card_type(card_details, 52)
+player1_card_2 = deck.pop
+player2_card_2 = deck.pop
+
+puts "Player 1 is holding #{player1_card_1} and #{player1_card_2}"
+puts "Player 2 is holding #{player2_card_1} and #{player2_card_2}"
 
 
