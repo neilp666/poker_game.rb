@@ -70,14 +70,26 @@ card_details = [{ace_of_spades: {numeric_value: 1, value: 1}},
                 {clubs_5: {numeric_value: 49, value: 5}},
                 {clubs_4: {numeric_value: 50, value: 4}},
                 {clubs_3: {numeric_value: 51, value: 3}},
-                {clubs_2: {numeric_value: 52, value: 2}},
-
-
+                {clubs_2: {numeric_value: 52, value: 2}}
                 ]
+
+def get_card_value(card_details, card)
+  card_details.each do |name|
+    name.each do |key, value|
+      new_value = value[:numeric_value]
+      return value[:value] if new_value == card
+    end
+  end
+end
+
 
 deck = (1..52).to_a.shuffle!
 print deck
 puts card_details
 puts " "
+
+#example
+
+puts get_card_value(card_details, 10)
 
 
